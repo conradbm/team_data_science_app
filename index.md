@@ -1,9 +1,9 @@
 ## CSCI 49000 Final Data Science Project Home Page
 ### Members:
 ```markdown
-- **Blake Conrad**
-- **Jeniffer Emery**
-- **Turki Alhazzani**
+- Blake Conrad
+- Jeniffer Emery
+- Turki Alhazzani
 ```
 
 ### Goal:
