@@ -11,6 +11,7 @@
 -Find maximum similarity of a text with a pool of other texts
 -Our prototype goal is to simulate this with bible chapters
 -Another prototype idea would be: Given any bible chapter, return all other bible chapters sufficiently relevant to those found in that chapter from the same book (i.e., the bible)
+   - Example) Given Genesis 1, our model would look at each chapter in the bible to find the maximum number of topics intersecting with Genesis chapter 1, then return the top K which have the highest number of set intersections 
 ```
 
 ### Example: 
