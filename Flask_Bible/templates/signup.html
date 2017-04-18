@@ -27,8 +27,8 @@ rel="stylesheet">
                         console.log(response);
                         console.log($('form').find('input'));
                                     
-                        var printString = "<h1>"+ $("#bookSelected").val() + " "+ $("#chapterSelected").val() + "</h1>";
-                        var htmlString = "<div class=\"jumbotron\"><p>" + printString + "</p>";
+                        var printString = "<h1 style=\"padding-bottom:80px;\">"+ $("#bookSelected").val() + " "+ $("#chapterSelected").val() + "</h1>";
+                        var htmlString = "<div class=\"jumbotron\" style=\"padding-top:0px;\"><p>" + printString + "</p>";
                         
                         
                         var arr = response.split('"');
