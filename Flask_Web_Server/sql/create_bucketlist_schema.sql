@@ -1,3 +1,7 @@
+# Author: Blake Conrad
+# Create a new user table stored proc
+
+
 use Bucketlist;
 
 CREATE TABLE `BucketList`.`tbl_user` (

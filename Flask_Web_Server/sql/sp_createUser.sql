@@ -1,3 +1,6 @@
+# Author: Blake Conrad
+# Create a new user login acct stored proc
+
 use Bucketlist;
 
 DELIMITER $$
