@@ -1,8 +1,7 @@
 # Author: Blake Conrad
-# Contents: Return bible text based on a query
-# Args: Book
-# Return: All verses in every chapter associated with the book queried
-
+# Contents: Return unique chapter count for book in the bible
+# Args: BookID
+# Return: integer representing the raw number of chapters
 
 use Bible;
 
