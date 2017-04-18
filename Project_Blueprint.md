@@ -6,6 +6,7 @@
         <li>We need a statistics class to get word distributions for books, chapters, and verses</li>
         <li>We need a sentiment analyzer to determine if a verse was good, bad, or neurtral</li>
         <li>We need a topic modeling object to return the topics of a chapter</li>
+        <ul> <li>The end goal here is to find maximum intersection of similar topics, say.. the top K</li> </ul>
         </ul>
 
 <li>
