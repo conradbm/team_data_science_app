@@ -26,16 +26,35 @@ rel="stylesheet">
                     success: function(response) {
                         console.log(response);
                         console.log($('form').find('input'));
+                                    
+                        var printString = "<h1>"+ $("#bookSelected").val() + " "+ $("#chapterSelected").val() + "</h1>";
+                        var htmlString = "<div class=\"jumbotron\"><p>" + printString + "</p>";
+                        
+                        
+                        var arr = response.split('"');
+                        arr.shift();
+                        arr.pop();
+                        var count=1;
+                        arr.forEach(function(item){
+                            
+                            if(item == ", "){return;}
+                            htmlString += "<p> "+count.toString()+ ". " + item + "</p><br>";
+                            count++;
+                        });
+
+                        
+                        htmlString += "</div>";
+                        $("#resultsDiv").html(htmlString);
                         
                         $('form').find('input').val(''); 
                         
-                        $("#resultsDiv").html("<div class=\"jumbotron\"><p>"+response.toString()+"</p></div>");
                     },
                     error: function(error) {
                         console.log(error);
                     }
                 });
             });
+            
         });   
       });
 
@@ -67,7 +86,7 @@ rel="stylesheet">
 
             <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" 
     type="button">Search</button>
-            <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" 
+            <button id="btnFindSimilar" class="btn btn-lg btn-primary btn-block" 
     type="button">Find Similar</button>
       </form>
       </div>
