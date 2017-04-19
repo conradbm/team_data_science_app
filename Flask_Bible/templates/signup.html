@@ -19,22 +19,42 @@ rel="stylesheet">
       $(document).ready(function(){
         $(function() {
             $('#btnSignUp').click(function() {
-
                 $.ajax({
-                    url: '/queryBible',
+                    url: '/signUp',
                     data: $('form').serialize(),
                     type: 'POST',
                     success: function(response) {
                         console.log(response);
                         console.log($('form').find('input'));
+                                    
+                        var printString = "<h1 style=\"padding-bottom:80px;\">"+ $("#bookSelected").val() + " "+ $("#chapterSelected").val() + "</h1>";
+                        var htmlString = "<div class=\"jumbotron\" style=\"padding-top:0px;\"><p>" + printString + "</p>";
+                        
+                        
+                        var arr = response.split('"');
+                        arr.shift();
+                        arr.pop();
+                        var count=1;
+                        arr.forEach(function(item){
+                            
+                            if(item == ", "){return;}
+                            htmlString += "<p> "+count.toString()+ ". " + item + "</p><br>";
+                            count++;
+                        });
+
+                        
+                        htmlString += "</div>";
+                        $("#resultsDiv").html(htmlString);
                         
                         $('form').find('input').val(''); 
+                        
                     },
                     error: function(error) {
                         console.log(error);
                     }
                 });
             });
+            
         });   
       });
 
@@ -63,18 +83,16 @@ rel="stylesheet">
             <label for="selectedChapter" class="sr-only">Chapter</label>
             <input type="text" name="chapterSelected" id="chapterSelected" 
     class="form-control" placeholder="Chapter..." required autofocus>
-            <label for="selectedVerse" class="sr-only">Verse</label>
-            <input type="text" name="selectedVerse" id="selectedVerse" 
-    class="form-control" placeholder="Password" required>
 
             <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" 
     type="button">Search</button>
-            <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" 
+            <button id="btnFindSimilar" class="btn btn-lg btn-primary btn-block" 
     type="button">Find Similar</button>
       </form>
       </div>
  
-       
+        <div class="jumbotron" id="resultsDiv">
+        </div>
  
       <footer class="footer">
         <p>&copy; Company 2015</p>
