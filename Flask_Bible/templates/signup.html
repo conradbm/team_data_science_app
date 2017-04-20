@@ -24,9 +24,12 @@ rel="stylesheet">
                     data: $('form').serialize(),
                     type: 'POST',
                     success: function(response) {
+                        
+                        // Confirm things got returned from our Flask script correctly.
                         console.log(response);
                         console.log($('form').find('input'));
                                     
+                        // Begin constructing our output string to the div
                         var printString = "<h1 style=\"padding-bottom:80px;\">"+ $("#bookSelected").val() + " "+ $("#chapterSelected").val() + "</h1>";
                         var htmlString = "<div class=\"jumbotron\" style=\"padding-top:0px;\"><p>" + printString + "</p>";
                         
@@ -38,7 +41,7 @@ rel="stylesheet">
                         arr.forEach(function(item){
                             
                             if(item == ", "){return;}
-                            htmlString += "<p> "+count.toString()+ ". " + item + "</p><br>";
+                            htmlString += "<p style=\"font-family:monospace;\"> "+count.toString()+ ". " + item + "</p><br>";
                             count++;
                         });
 
