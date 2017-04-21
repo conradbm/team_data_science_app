@@ -91,9 +91,24 @@ rel="stylesheet">
     type="button">Search</button>
             <button id="btnFindSimilar" class="btn btn-lg btn-primary btn-block" 
     type="button">Find Similar</button>
+        <input type="range",name="slideone", min="1" max="100" value="1" step="1" onchange="showValue(this.value)" />
+    <span id="one">1</span>
+    <input type="range",name="slidetwo" min="1" max="100" value="1" step="1" onchange="showValue2(this.value)" />
+    <span id="two">1</span>
+    <script type="text/javascript">
+        function showValue(newValue)
+        {
+            document.getElementById("one").innerHTML=newValue;
+        }
+        function showValue2(newValue)
+        {
+            document.getElementById("two").innerHTML=newValue;
+        }
+    </script>
+
       </form>
       </div>
- 
+     
         <div class="jumbotron" id="resultsDiv">
         </div>
  
