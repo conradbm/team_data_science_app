@@ -54,7 +54,37 @@ rel="stylesheet">
                     }
                 });
             });
-            
+            $('#btnFindSimilar').click(function() {
+                
+                sliderVal = document.getElementById("one").innerHTML;
+                $.ajax({
+                    url: '/similaritySearch',
+                    data: $('form').serialize() + "&sliderVal="+sliderVal,
+                    type: 'POST',
+                    success: function(response) {
+                        console.log(response);
+                        console.log($('form').find('input'));
+                                    
+                        var chapsSimilar = response.split('"')
+                        chapsSimilar.shift();
+                        chapsSimilar.pop();
+                        var count=1;
+                        htmlString="<p>Similar Chapters to "+ $("#chapterSelected").val() + " Inside of "+$("#bookSelected").val()+"</p><br>";
+                        chapsSimilar.forEach(function(item){
+                            
+                            if(item == ", "){return;}
+                            htmlString += "<p> Chapter: " + item + "</p><br>";
+                            count++;
+                        });
+                        
+                        $('#resultsDiv').append(htmlString)
+                        
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
         });   
       });
     </script>
@@ -89,17 +119,13 @@ rel="stylesheet">
     type="button">Find Similar</button>
 	<input type="range",id="slideone", min="1" max="100" value="1" step="1" onchange="showValue(this.value)" />
 		<span id="one">1</span>
-		<input type="range",id="slidetwo" min="1" max="100" value="1" step="1" onchange="showValue2(this.value)" />
-		<span id="two">1</span>
+
 		<script type="text/javascript">
 		function showValue(newValue){
 			document.getElementById("one").innerHTML=newValue;
 		
 		}
-		function showValue2(newValue)
-		{
-		document.getElementById("two").innerHTML=newValue;
-		}
+
 		</script>
 	  </form>
       </div>
