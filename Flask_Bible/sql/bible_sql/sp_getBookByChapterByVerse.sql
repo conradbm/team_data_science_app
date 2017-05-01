@@ -1,5 +1,5 @@
 # Author: Blake Conrad
-# Contents: Return bible text based on a query
+# Contents: A routine that returns bible text based on a query
 # Args: Book, Chapter, and Verse
 # Return: A specific verse explicitely requested by the query
 

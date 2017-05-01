@@ -1,5 +1,5 @@
 # Author: Blake Conrad
-# Contents: Return unique chapter count for book in the bible
+# Contents: A routine that returns unique chapter count for book in the bible
 # Args: BookID
 # Return: integer representing the raw number of chapters
 
